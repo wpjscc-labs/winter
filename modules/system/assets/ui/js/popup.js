@@ -75,6 +75,7 @@
         if (this.options.handler) {
 
             this.$el.request(this.options.handler, {
+                url: this.options.url || undefined,
                 data: paramToObj('data-extra-data', this.options.extraData),
                 success: function(data, textStatus, jqXHR) {
                     this.success(data, textStatus, jqXHR).done(function(){
