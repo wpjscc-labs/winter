@@ -51,9 +51,11 @@ if (window.jQuery.request !== undefined) {
         var _event = jQuery.Event('oc.beforeRequest')
         $triggerEl.trigger(_event, context)
         if (_event.isDefaultPrevented()) return
-
+        
+        var action = $form.attr('action')
+        
         var loading = options.loading !== undefined ? options.loading : null,
-            url = options.url !== undefined ? options.url : window.location.href,
+            url = options.url !== undefined ? options.url : (action ? action : window.location.href),
             isRedirect = options.redirect !== undefined && options.redirect.length,
             useFlash = options.flash !== undefined,
             useFiles = options.files !== undefined
